@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droguería Veterinaria N&S | Palmira</title>
+  <meta name="description" content="Expertos en el cuidado de tu mascota en Palmira. Consultas veterinarias, droguería, tienda y domicilios gratis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1a73e8;
+      --blue-dark: #0d47a1;
+      --blue-light: #e8f0fe;
+      --teal: #00897b;
+      --teal-light: #e0f2f1;
+      --warm: #ff6b35;
+      --warm-light: #fff3ee;
+      --text: #1a1a2e;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --bg: #f8fafc;
+      --border: #e2e8f0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226,232,240,0.6);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--blue);
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); background: var(--blue-light); }
+    .nav-cta {
+      background: var(--warm) !important;
+      color: white !important;
+      border-radius: 8px;
+    }
+    .nav-cta:hover { background: #e55a26 !important; color: white !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 6% 60px;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-video-bg video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-video-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10, 25, 60, 0.72) 0%,
+        rgba(10, 40, 70, 0.60) 50%,
+        rgba(5, 20, 40, 0.68) 100%
+      );
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .hero h1 span { color: #7dd3fc; }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #7dd3fc;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.2);
+      align-self: stretch;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll span { font-size: 1.2rem; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    .btn-primary {
+      background: var(--warm);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,53,0.45); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(8px);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.6); }
+
+    /* Instagram Card */
+    .hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+    .insta-card {
+      background: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 360px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .insta-header {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .insta-avatar {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .insta-avatar img {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--blue);
+    }
+    .insta-avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      z-index: -1;
+    }
+    .insta-info { flex: 1; }
+    .insta-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .insta-handle { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+    .insta-bio { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; }
+    .insta-stats {
+      display: flex;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 0;
+    }
+    .insta-stat {
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .insta-stat:last-child { border-right: none; }
+    .insta-stat-n { font-weight: 800; font-size: 1.1rem; color: var(--text); }
+    .insta-stat-l { font-size: 0.72rem; color: var(--text-muted); }
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .insta-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+    .insta-footer {
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .insta-follow-btn {
+      flex: 1;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s;
+      display: block;
+    }
+    .insta-follow-btn:hover { background: var(--blue-dark); }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 80px 6%; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--blue-dark);
+      color: white;
+      padding: 20px 6%;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .trust-icon { font-size: 1.3rem; }
+
+    /* ─── SERVICES ─── */
+    .services-section { background: white; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 32px 28px;
+      border: 1.5px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: var(--blue-light);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .service-card.teal .service-icon { background: var(--teal-light); }
+    .service-card.warm .service-icon { background: var(--warm-light); }
+    .service-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .service-price {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+    .service-card.warm .service-price { background: var(--warm-light); color: var(--warm); }
+    .service-card.teal .service-price { background: var(--teal-light); color: var(--teal); }
+
+    /* ─── WHY US ─── */
+    .why-section {
+      background: linear-gradient(135deg, #0d47a1, #1565c0);
+      color: white;
+    }
+    .why-section .section-label { color: rgba(255,255,255,0.6); }
+    .why-section .section-title { color: white; }
+    .why-section .section-sub { color: rgba(255,255,255,0.7); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 32px 24px;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.14); }
+    .why-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .why-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .why-desc { font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+    /* ─── GALLERY ─── */
+    .gallery-section { background: var(--bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-caption {
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .gallery-insta-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 36px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .gallery-insta-link a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .gallery-insta-link a:hover { text-decoration: underline; }
+
+    /* ─── REPUTATION / TESTIMONIALS ─── */
+    .reputation-section { background: white; }
+    .rep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .rep-numbers { display: flex; flex-direction: column; gap: 28px; }
+    .rep-number-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 20px 24px;
+      border: 1.5px solid var(--border);
+    }
+    .rep-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1;
+      min-width: 80px;
+    }
+    .rep-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+    .rep-desc strong { display: block; color: var(--text); font-size: 1rem; margin-bottom: 2px; }
+    .testimonials { display: flex; flex-direction: column; gap: 20px; }
+    .testimonial-card {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 28px;
+      border: 1.5px solid var(--border);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px; left: 24px;
+      font-size: 4rem;
+      color: var(--blue-light);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      padding-top: 16px;
+    }
+    .testimonial-footer { display: flex; align-items: center; gap: 12px; }
+    .test-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .test-name { font-weight: 700; font-size: 0.9rem; }
+    .test-source { font-size: 0.78rem; color: var(--text-muted); }
+    .stars { color: #f59e0b; font-size: 0.85rem; margin-top: 2px; }
+
+    /* ─── PROMO BANNER ─── */
+    .promo-section {
+      background: linear-gradient(135deg, var(--warm), #ff8c42);
+      padding: 60px 6%;
+      text-align: center;
+      color: white;
+    }
+    .promo-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .promo-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 28px;
+    }
+    .promo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--warm);
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .promo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+    /* ─── CONTACT ─── */
+    .contact-section { background: var(--bg); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      border: 1.5px solid var(--border);
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .contact-card:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .contact-card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .cc-blue { background: var(--blue-light); }
+    .cc-green { background: #e8f5e9; }
+    .cc-teal { background: var(--teal-light); }
+    .cc-warm { background: var(--warm-light); }
+    .contact-card-content {}
+    .contact-card-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .contact-card-value { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .contact-card-sub { font-size: 0.82rem; color: var(--text-muted); margin-top: 2px; }
+
+    .contact-map {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+    }
+    .map-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .map-header h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .map-header p { font-size: 0.85rem; color: var(--text-muted); }
+    .map-embed {
+      width: 100%;
+      height: 280px;
+      border: none;
+      display: block;
+    }
+    .map-footer {
+      padding: 16px 24px;
+      background: var(--bg);
+      display: flex;
+      gap: 10px;
+    }
+    .map-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .map-btn-primary { background: var(--blue); color: white; }
+    .map-btn-primary:hover { background: var(--blue-dark); }
+    .map-btn-secondary { background: white; color: var(--text); border: 1.5px solid var(--border); }
+    .map-btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 6% 32px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand { max-width: 300px; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    .footer-logo img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .footer-desc { font-size: 0.875rem; line-height: 1.7; }
+    .footer-links h4 { color: white; font-size: 0.875rem; font-weight: 700; margin-bottom: 16px; }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.6); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-social {  }
+    .footer-social h4 { color: white; font-size: 0.875rem; font-weight: 700; margin-bottom: 16px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-link:hover { background: rgba(255,255,255,0.18); color: white; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 60px; height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      z-index: 999;
+      text-decoration: none;
+      transition: all 0.3s;
+      animation: wa-pulse 2.5s infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.55); animation: none; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 100px 6% 80px; text-align: center; }
+      .hero-stats { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-desc { margin: 0 auto 32px; }
+      .hero-visual { display: none; }
+      .rep-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .trust-bar { gap: 20px; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 60px 5%; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-top { flex-direction: column; }
+    }
+
+    /* Scroll animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- WhatsApp Float -->
+<a class="wa-float" href="https://wa.me/573135728325?text=Hola!%20Vi%20su%20web%20y%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" title="Escribir por WhatsApp">💬</a>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="assets/instagram/profile.jpg" alt="N&S" onerror="this.style.display='none'">
+    N&S Veterinaria
+  </a>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Ubicación</a>
+    <a href="https://wa.me/573135728325" class="nav-cta" target="_blank">Agenda Cita →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- Video de fondo -->
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="Fase_de_Acercamiento_Arriba_.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="hero-scroll">
+    <span>↓</span>
+    scroll
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🐾 Palmira & Cali · Domicilio gratis</div>
+    <h1>
+      Expertos en cuidar a tu<br>
+      <span>mascota</span> con amor
+    </h1>
+    <p class="hero-desc">
+      Consultas veterinarias, droguería y tienda para mascotas en Palmira. Atención presencial y a domicilio — porque el bienestar de tu peludo es nuestra prioridad.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">2.5K+</div>
+        <div class="stat-label">Seguidores</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Domicilio gratis</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-number">2 🏙️</div>
+        <div class="stat-label">Palmira & Cali</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/573135728325?text=Hola!%20Quiero%20agendar%20una%20cita%20para%20mi%20mascota" target="_blank">
+        💬 Agendar por WhatsApp
+      </a>
+      <a class="btn-secondary" href="#servicios">Ver servicios →</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="insta-card">
+      <div class="insta-header">
+        <div class="insta-avatar">
+          <div class="insta-avatar-ring"></div>
+          <img src="assets/instagram/profile.jpg" alt="Droguería N&S" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\' viewBox=\'0 0 64 64\'%3E%3Ccircle cx=\'32\' cy=\'32\' r=\'32\' fill=\'%231a73e8\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' font-size=\'24\' fill=\'white\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🐾%3C/text%3E%3C/svg%3E'">
+        </div>
+        <div class="insta-info">
+          <div class="insta-name">drogueria_veterinaria</div>
+          <div class="insta-handle">Caninos & Felinos N&S</div>
+          <div class="insta-bio">Expertos en cuidar a tu mascota 🐾</div>
+        </div>
+      </div>
+      <div class="insta-stats">
+        <div class="insta-stat">
+          <div class="insta-stat-n">100+</div>
+          <div class="insta-stat-l">publicaciones</div>
+        </div>
+        <div class="insta-stat">
+          <div class="insta-stat-n">2,548</div>
+          <div class="insta-stat-l">seguidores</div>
+        </div>
+        <div class="insta-stat">
+          <div class="insta-stat-n">137</div>
+          <div class="insta-stat-l">siguiendo</div>
+        </div>
+      </div>
+      <div class="insta-grid">
+        <img src="assets/instagram/top_1.jpg" alt="Sorteo N&S" onerror="this.parentElement.style.background='#f0f4ff';this.style.display='none'">
+        <img src="assets/instagram/top_2.jpg" alt="Reto N&S" onerror="this.parentElement.style.background='#e8f5e9';this.style.display='none'">
+        <img src="assets/instagram/top_3.jpg" alt="Promo N&S" onerror="this.parentElement.style.background='#fff3ee';this.style.display='none'">
+        <img src="assets/instagram/top_4.jpg" alt="Bienestar N&S" onerror="this.parentElement.style.background='#f0f4ff';this.style.display='none'">
+        <img src="assets/instagram/top_5.jpg" alt="N&S Palmira" onerror="this.parentElement.style.background='#e0f2f1';this.style.display='none'">
+        <img src="assets/instagram/top_6.jpg" alt="Domicilios N&S" onerror="this.parentElement.style.background='#fff3ee';this.style.display='none'">
+      </div>
+      <div class="insta-footer">
+        <a class="insta-follow-btn" href="https://www.instagram.com/drogueria_veterinaria/" target="_blank">Ver en Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🏥</span> Consultas presenciales y a domicilio</div>
+  <div class="trust-item"><span class="trust-icon">🚚</span> Domicilio gratis en Palmira y Cali</div>
+  <div class="trust-item"><span class="trust-icon">💊</span> Droguería veterinaria completa</div>
+  <div class="trust-item"><span class="trust-icon">📦</span> Envíos nacionales</div>
+  <div class="trust-item"><span class="trust-icon">📞</span> 313 572 8325</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="servicios">
+  <div class="section-header reveal">
+    <div class="section-label">Lo que hacemos</div>
+    <h2 class="section-title">Todo lo que tu peludo<br>necesita en un solo lugar</h2>
+    <p class="section-sub">Desde consultas médicas hasta productos de primera calidad — atención profesional con el amor que tu mascota merece.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🏥</div>
+      <h3 class="service-title">Consulta Veterinaria</h3>
+      <p class="service-desc">Atención médica profesional para perros y gatos. Diagnóstico, revisión de salud general y orientación por expertos veterinarios.</p>
+      <span class="service-price">Presencial y a domicilio</span>
+    </div>
+    <div class="service-card teal reveal">
+      <div class="service-icon">💉</div>
+      <h3 class="service-title">Plan de Vacunación</h3>
+      <p class="service-desc">Vacuna anual (Polivalente + Rabia + Tos de las perreras). Mantenemos el esquema de vacunas de tu mascota siempre al día.</p>
+      <span class="service-price">Desde $50.000</span>
+    </div>
+    <div class="service-card warm reveal">
+      <div class="service-icon">🧪</div>
+      <h3 class="service-title">Desparasitación</h3>
+      <p class="service-desc">Desparasitación interna y externa para prevenir enfermedades. Incluimos dosis multivitamínica para reforzar la salud.</p>
+      <span class="service-price">Kit preventivo completo</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💊</div>
+      <h3 class="service-title">Droguería Veterinaria</h3>
+      <p class="service-desc">Medicamentos, suplementos y productos farmacéuticos para mascotas. Variedad completa con asesoría profesional incluida.</p>
+      <span class="service-price">Stock permanente</span>
+    </div>
+    <div class="service-card teal reveal">
+      <div class="service-icon">🛍️</div>
+      <h3 class="service-title">Tienda de Mascotas</h3>
+      <p class="service-desc">Alimentos premium, juguetes, camas, ropa y todos los accesorios que tu peludo necesita. Marcas confiables al mejor precio.</p>
+      <span class="service-price">Envíos nacionales</span>
+    </div>
+    <div class="service-card warm reveal">
+      <div class="service-icon">✂️</div>
+      <h3 class="service-title">Grooming Básico</h3>
+      <p class="service-desc">Corte de uñas, limpieza de oídos y cuidados básicos de higiene. En ocasiones especiales, ¡servicio totalmente gratis!</p>
+      <span class="service-price">Consultar disponibilidad</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="nosotros">
+  <div class="section-header reveal">
+    <div class="section-label">Por qué elegirnos</div>
+    <h2 class="section-title">La confianza de +2.500<br>familias nos respalda</h2>
+    <p class="section-sub">Más que una veterinaria — somos el aliado de tu familia para que tu mascota viva su mejor vida.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🚚</div>
+      <h3 class="why-title">Domicilio gratis</h3>
+      <p class="why-desc">No tienes que salir de casa. Atendemos en Palmira y Cali sin coste adicional. Tu comodidad primero.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🩺</div>
+      <h3 class="why-title">Equipo profesional</h3>
+      <p class="why-desc">Veterinarios con experiencia listos para atender cualquier emergencia o consulta de rutina de tu mascota.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📦</div>
+      <h3 class="why-title">Todo en uno</h3>
+      <p class="why-desc">Consulta médica, medicamentos, alimentos y accesorios — todo lo que tu mascota necesita en un solo lugar.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">💙</div>
+      <h3 class="why-title">Atención con amor</h3>
+      <p class="why-desc">Tratamos a cada mascota como si fuera la nuestra. Tu tranquilidad y la salud de tu peludo son nuestra prioridad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="galeria">
+  <div class="section-header reveal">
+    <div class="section-label">Instagram @drogueria_veterinaria</div>
+    <h2 class="section-title">Momentos reales con<br>nuestros pacientes</h2>
+    <p class="section-sub">Cada foto cuenta una historia de amor, cuidado y bienestar animal.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/top_5.jpg" alt="Droguería veterinaria Palmira" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">🎉 SORTEO Kit Preventivo — vacuna + desparasitación + corte de uñas + vitaminas 🐾🩶</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/top_2.jpg" alt="Reto Halloween N&S" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">🎃 SEMANA DEL RETO — responde y gana kit felino o kit perruno 🐱🐶</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/top_3.jpg" alt="Promo vacunas Halloween" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">💉 Vacuna anual por solo $50.000 — domicilio gratis en Palmira y Cali 🚚</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/top_4.jpg" alt="Promoción bienestar mascota" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">¡Su bienestar es tu tranquilidad! Domicilio gratis en Palmira y Cali 🐾❤️</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/pet_march2026.jpg" alt="Amor que comienza con una patita N&S" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Amor que comienza con una patita 🐾💙 Gracias por confiar en nosotros para cuidar al nuevo integrante</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/top_6.jpg" alt="Domicilios y envíos N&S" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">🚚 Domicilios y envíos nacionales — llegamos hasta la puerta de tu casa 🐶❤️</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/pet_clients1.jpg" alt="Clientes peluditos N&S Palmira" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">😍 Nuestros clientes peluditos son lo más lindo de la casa — les presentamos a un nuevo amigo ❤️</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/pet_tobias.jpg" alt="Tobías cliente N&S Palmira" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">💖🐶 La salud de Tobías es tan importante como la mía — siempre ha estado en las mejores manos</span>
+      </div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="assets/instagram/pet_clients2.jpg" alt="Peluditos consentidos N&S" loading="lazy">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">🥰 Nos encanta consentir a nuestros clientes peludos — ¡son hermosos! 🐶❤️</span>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-insta-link reveal">
+    📸 Ver más fotos en
+    <a href="https://www.instagram.com/drogueria_veterinaria/" target="_blank">@drogueria_veterinaria</a>
+  </div>
+</section>
+
+<!-- REPUTATION -->
+<section class="reputation-section">
+  <div class="section-header reveal">
+    <div class="section-label">Nuestra reputación</div>
+    <h2 class="section-title">La comunidad<br>que nos acompaña</h2>
+  </div>
+  <div class="rep-grid">
+    <div class="rep-numbers">
+      <div class="rep-number-card reveal">
+        <div class="rep-num">2.5K</div>
+        <div class="rep-desc">
+          <strong>Seguidores en Instagram</strong>
+          Comunidad de dueños de mascotas que confían en nosotros
+        </div>
+      </div>
+      <div class="rep-number-card reveal">
+        <div class="rep-num">2 🏙️</div>
+        <div class="rep-desc">
+          <strong>Ciudades con cobertura</strong>
+          Palmira y Cali con domicilio completamente gratis
+        </div>
+      </div>
+      <div class="rep-number-card reveal">
+        <div class="rep-num">🇨🇴</div>
+        <div class="rep-desc">
+          <strong>Envíos a todo Colombia</strong>
+          Enviamos productos a cualquier rincón del país
+        </div>
+      </div>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">
+          "Llevo meses trayendo a mi perrita y siempre recibo el mejor trato. Los veterinarios son muy profesionales y el domicilio es súper rápido. ¡Mi Lola los adora!"
+        </p>
+        <div class="testimonial-footer">
+          <div class="test-avatar">C</div>
+          <div>
+            <div class="test-name">Cliente satisfecha</div>
+            <div class="test-source">Palmira, Valle del Cauca</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">
+          "Excelente servicio, muy completos. Encontré todo lo que necesitaba para mi gato: vacuna, desparasitación y los alimentos favoritos. Precio justo y atención de primera."
+        </p>
+        <div class="testimonial-footer">
+          <div class="test-avatar" style="background: linear-gradient(135deg, #00897b, #26a69a);">M</div>
+          <div>
+            <div class="test-name">Cliente fiel</div>
+            <div class="test-source">Palmira, Valle del Cauca</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo-section">
+  <div class="reveal">
+    <h2>🎉 Kit Preventivo para tu mascota</h2>
+    <p>Vacuna anual + Desparasitación + Corte de uñas + Limpieza de oídos + Dosis multivitamínica</p>
+    <a class="promo-btn" href="https://wa.me/573135728325?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20el%20Kit%20Preventivo" target="_blank">
+      💬 Preguntar por el Kit
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contacto">
+  <div class="section-header reveal">
+    <div class="section-label">Encuéntranos</div>
+    <h2 class="section-title">Estamos aquí<br>para ayudarte</h2>
+    <p class="section-sub">Visítanos en Palmira, llámanos o escríbenos. También vamos hasta tu casa.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <a class="contact-card" href="https://wa.me/573135728325" target="_blank">
+        <div class="contact-card-icon cc-green">💬</div>
+        <div class="contact-card-content">
+          <div class="contact-card-label">WhatsApp</div>
+          <div class="contact-card-value">313 572 8325</div>
+          <div class="contact-card-sub">Respuesta rápida · Citas y pedidos</div>
+        </div>
+      </a>
+      <a class="contact-card" href="tel:+573135728325">
+        <div class="contact-card-icon cc-blue">📞</div>
+        <div class="contact-card-content">
+          <div class="contact-card-label">Teléfono</div>
+          <div class="contact-card-value">313 572 8325</div>
+          <div class="contact-card-sub">Llámanos para consultar</div>
+        </div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-card-icon cc-teal">📍</div>
+        <div class="contact-card-content">
+          <div class="contact-card-label">Dirección</div>
+          <div class="contact-card-value">Cra. 24 #58 Local 1</div>
+          <div class="contact-card-sub">Palmira, Valle del Cauca, Colombia</div>
+        </div>
+      </div>
+      <a class="contact-card" href="https://www.instagram.com/drogueria_veterinaria/" target="_blank">
+        <div class="contact-card-icon" style="background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #bc1888); font-size: 1.4rem; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">📸</div>
+        <div class="contact-card-content">
+          <div class="contact-card-label">Instagram</div>
+          <div class="contact-card-value">@drogueria_veterinaria</div>
+          <div class="contact-card-sub">2,548 seguidores · Síguenos</div>
+        </div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-card-icon cc-warm">🚚</div>
+        <div class="contact-card-content">
+          <div class="contact-card-label">Cobertura</div>
+          <div class="contact-card-value">Palmira y Cali — Gratis</div>
+          <div class="contact-card-sub">Envíos nacionales a todo Colombia</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <div class="map-header">
+        <h3>📍 Cra. 24 #58 Local 1, Palmira</h3>
+        <p>Droguería Veterinaria Caninos & Felinos N&S</p>
+      </div>
+      <iframe
+        class="map-embed"
+        src="https://maps.google.com/maps?q=Cra+24+%2358+Local+1,+Palmira,+Valle+del+Cauca,+Colombia&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Droguería Veterinaria N&S Palmira">
+      </iframe>
+      <div class="map-footer">
+        <a class="map-btn map-btn-primary" href="https://maps.google.com/?q=Cra+24+%2358+Local+1,+Palmira,+Valle+del+Cauca,+Colombia" target="_blank">
+          🗺️ Cómo llegar
+        </a>
+        <a class="map-btn map-btn-secondary" href="https://wa.me/573135728325?text=Hola!%20Quiero%20que%20vengan%20a%20domicilio" target="_blank">
+          🚚 Pedir domicilio
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/instagram/profile.jpg" alt="N&S" onerror="this.style.display='none'">
+        Droguería Veterinaria N&S
+      </div>
+      <p class="footer-desc">Expertos en cuidar a tu mascota en Palmira. Consultas, droguería, tienda y domicilios. Caninos & Felinos — porque tu peludo merece lo mejor. 🐾</p>
+    </div>
+    <div class="footer-links">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Consulta veterinaria</a></li>
+        <li><a href="#servicios">Vacunación</a></li>
+        <li><a href="#servicios">Desparasitación</a></li>
+        <li><a href="#servicios">Droguería</a></li>
+        <li><a href="#servicios">Tienda mascotas</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/573135728325">WhatsApp: 313 572 8325</a></li>
+        <li><a href="#">Cra. 24 #58 Local 1</a></li>
+        <li><a href="#">Palmira, Valle del Cauca</a></li>
+        <li><a href="#">Envíos nacionales 🇨🇴</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Síguenos</h4>
+      <div class="social-links">
+        <a class="social-link" href="https://www.instagram.com/drogueria_veterinaria/" target="_blank" title="Instagram">📸</a>
+        <a class="social-link" href="https://wa.me/573135728325" target="_blank" title="WhatsApp">💬</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Droguería Veterinaria Caninos & Felinos N&S · Palmira, Colombia</span>
+    <span>Hecho con ❤️ para los amantes de las mascotas</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--blue)' : '';
+    });
+  });
+</script>
+</body>
+</html>
